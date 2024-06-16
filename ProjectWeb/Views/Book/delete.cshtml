@@ -1,0 +1,64 @@
+﻿@model Book
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Book</h2>
+            <hr /><hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Title"></label> 
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span> 
+        </div>
+        <div class="mb-3">
+            <label asp-for="ISBN"></label>
+            <input asp-for="ISBN" class="form-control" />
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Author"></label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoryId"></label>
+            <input asp-for="CategoryId" class="form-control" />
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="TotalBook"></label>
+            <input asp-for="TotalBook" class="form-control" />
+            <span asp-validation-for="TotalBook" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="BorrowdBook"></label>
+            <input asp-for="BorrowdBook" class="form-control" />
+            <span asp-validation-for="BorrowdBook" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="LeftBook"></label>
+            <input asp-for="LeftBook" class="form-control" />
+            <span asp-validation-for="LeftBook" class="text-danger"></span>
+
+        </div>
+        <button typeof="submit" class="btn btn-primary" style="width:150x">Delete</button>
+        <a asp-controller="Book" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to list
+        </a>
+    </div>
+</form>
+
+@section scripts {
+    @{
+        <partial name="_validationScriptsPartial" />
+    }
+}
+
+

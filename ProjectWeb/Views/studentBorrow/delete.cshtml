@@ -1,0 +1,56 @@
+﻿@model StudentBorrow
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Remove student</h2>
+            <hr /><hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="StudentId"></label>
+            <input asp-for="StudentId" class="form-control" />
+            <span asp-validation-for="StudentId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="BookID"></label>
+            <input asp-for="BookID" class="form-control" />
+            <span asp-validation-for="BookID" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Remark"></label>
+            <input asp-for="Remark" class="form-control" />
+            <span asp-validation-for="Remark" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Quantity"></label>
+            <input asp-for="Quantity" class="form-control" />
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="SpendTime"></label>
+            <input asp-for="SpendTime" class="form-control" />
+            <span asp-validation-for="SpendTime" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="ReterningDataTime"></label>
+            <input asp-for="ReterningDataTime" class="form-control" />
+            <span asp-validation-for="ReterningDataTime" class="text-danger"></span>
+
+        </div>
+        <button typeof="submit" class="btn btn-primary" style="width:150x">Delete</button>
+        <a asp-controller="studentBorrow" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to list
+        </a>
+    </div>
+</form>
+
+@section scripts {
+    @{
+        <partial name="_validationScriptsPartial" />
+    }
+}

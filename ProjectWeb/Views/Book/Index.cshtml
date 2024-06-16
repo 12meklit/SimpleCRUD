@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Book List</h2>
+
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Book" asp-action="create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; create new Book
+            </a>
+        </div>
+    </div>
+
+</div>
+<br />
+<br />
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Book Title
+            </th>
+            <th>
+                Book ISBN
+            </th>
+             <th>
+                Book Author
+            </th>
+            <th>
+                Book Category
+            </th>
+            <th>
+                Total Book 
+            </th>
+            <th>
+                Borrowd Book 
+            </th>
+            <th>
+                Remaning Book
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ob in Model) 
+        {
+            <tr>
+                <td width="15%">
+                    @ob.Title
+                </td>
+                <td width="10%">
+                    @ob.ISBN
+                </td>
+                <td width="15%">
+                    @ob.Author
+                </td>
+                <td width="10%">
+                    @ob.Category.Name
+                </td>
+                <td width="10%">
+                    @ob.TotalBook
+                </td>
+                <td width="10%">
+                    @ob.BorrowdBook
+                </td>
+                <td width="10%">
+                    @{
+                        var balance = ob.TotalBook - ob.BorrowdBook;
+                    }
+                    @balance
+                </td>
+                <td width="50%">
+                    <div class="w=75" btn-group" role="group">
+                        <a asp-controller="Book" asp-action="Edit" asp-route-id="@ob.Id"
+                           class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Edit</a>
+                      
+                        <a asp-controller="Book" asp-action="Delete" asp-route-id="@ob.Id"
+                           class="btn btn-danger mx-2"><i class="bi bi-trash"></i>Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

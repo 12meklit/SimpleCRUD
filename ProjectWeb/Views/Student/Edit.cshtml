@@ -1,0 +1,47 @@
+﻿@model student
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Update student</h2>
+            <hr /><hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="FullName"></label> <!--Display name of th1-->
+            <input asp-for="FullName" class="form-control" /> <!--the input field for name column-->
+            <span asp-validation-for="FullName" class="text-danger"></span> <!--display error message related to name column if any-->
+        </div>
+        <div class="mb-3">
+            <label asp-for="Gender"></label>
+            <select class="form-control" asp-for="Gender">
+                <option>Femal</option>
+                <option>Male</option>
+            </select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+
+            <div class="mb-3">
+                <label asp-for="phone"></label>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+
+                <div class="mb-3">
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+
+                </div>
+            </div>
+        </div>
+        <button typeof="submit" class="btn btn-primary" style="width:150x">update</button>
+        <a asp-controller="student" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to list
+        </a>
+    </div>
+</form>
+
+@section scripts {
+    @{
+        <partial name="_validationScriptsPartial" />
+    }
+}
